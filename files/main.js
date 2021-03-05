@@ -179,7 +179,7 @@ $.getJSON('https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin&vs
 		    if(!error){
 		        var tokens = web3.toDecimal(result).toString();
 		        normal_dividens = tokens;
-		        dBal = Number(web3.fromWei(tokens, 'ether')).toFixed(4);
+		        dBal = Number(web3.fromWei(tokens, 'ether')).toFixed(6);
 				$('.poh-nonrefdiv').html(dBal + " ETH");
          
 
@@ -206,7 +206,7 @@ $.getJSON('https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin&vs
 		        var tokens = web3.toDecimal(result).toString();
 		        var indBal = web3.fromWei(tokens, 'ether');
 		        $('.poh-balance').html( Number(indBal).toFixed(2));
-             $('.poh-value').html( Number(sellP*indBal).toFixed(4)+ " ETH");
+             $('.poh-value').html( Number(sellP*indBal).toFixed(6)+ " ETH");
              var totalvalueineth = sellP*indBal;
              $('.poh-value-usd').html(Number((totalvalueineth*ethPrice)).toFixed(2)+ " "+fia);
 		        calculateEthereumReceived(web3.toWei(indBal, 'ether'));
@@ -233,8 +233,8 @@ $.getJSON('https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin&vs
 		        else if(isMetaMask){
 					calculateTokensReceived(web3.toWei(allDivs, 'ether'));
 			    }
-		        aBal = Number(allDivs).toFixed(4);
-		        mBal = Number(web3.fromWei(master_dividens, 'ether')).toFixed(4);
+		        aBal = Number(allDivs).toFixed(6);
+		        mBal = Number(web3.fromWei(master_dividens, 'ether')).toFixed(6);
 				$('.poh-refdiv').html(mBal + " ETH");
 				$('.poh-div').html(aBal + " ETH");
         $('.poh-div-usd').html(Number((ethPrice*aBal)).toFixed(2) + " "+fia);
@@ -366,8 +366,8 @@ $.getJSON('https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin&vs
       ethPrice = parseFloat(eth + currency.toLowerCase())
 			let fiaPrice = ethPrice;
 			$('#balanceFIA').html("( " + Number(ethB*fiaPrice).toFixed(2) + " " +  fia + " )");
-			$('#buyFIA').html("( " + Number(buyP*fiaPrice).toFixed(4) + " "  + fia + " )");
-			$('#sellFIA').html("( " + Number(sellP*fiaPrice).toFixed(4) + " " + fia + " )");
+			$('#buyFIA').html("( " + Number(buyP*fiaPrice).toFixed(6) + " "  + fia + " )");
+			$('#sellFIA').html("( " + Number(sellP*fiaPrice).toFixed(6) + " " + fia + " )");
 			$('#tBalanceFIA').html("( " + Number(tBalETC*fiaPrice).toFixed(2) + " " + fia + " )");
 			$('#aBalanceFIA').html("( " + Number(aBal*fiaPrice).toFixed(2) + " " + fia + " )");
 			$('#mBalanceFIA').html("( " + Number(mBal*fiaPrice).toFixed(2) + " " + fia + " )");
