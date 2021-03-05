@@ -205,7 +205,7 @@ $.getJSON('https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin&vs
 		    if(!error){
 		        var tokens = web3.toDecimal(result).toString();
 		        var indBal = web3.fromWei(tokens, 'ether');
-		        $('.poh-balance').html( Number(indBal).toFixed(2));
+		        $('.poh-balance').html( Number(indBal).toFixed(5));
              $('.poh-value').html( Number(sellP*indBal).toFixed(6)+ " ETH");
              var totalvalueineth = sellP*indBal;
              $('.poh-value-usd').html(Number((totalvalueineth*ethPrice)).toFixed(2)+ " "+fia);
